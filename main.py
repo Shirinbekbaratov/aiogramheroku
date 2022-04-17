@@ -10,4 +10,4 @@ dp=Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def start(message):
-
+    await message.reply('Hi')
