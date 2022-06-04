@@ -46,20 +46,20 @@ async def changevalyut(message: types.Message):
         await message.answer(text="Menga savollaringiz bormi", reply_markup=markup)
 
     elif(message.text == "Dollar-So'm"):
-        response=requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/USD/UZS').json()
-        await message.answer(f"1 USD={response['conversion_rate']} So'm")
+        response1=requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/USD/UZS').json()
+        await message.answer(f"1 USD={response1['conversion_rate']} So'm")
 
     elif(message.text == "Dollar-Rubl"):
-        response=requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/USD/RUB').json()
-        await message.answer(f"1 USD={response['conversion_rate']} Rubl")
+        response2=requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/USD/RUB').json()
+        await message.answer(f"1 USD={response2['conversion_rate']} Rubl")
     elif(message.text == "Rubl-So'm"):
-        response=requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/RUB/UZS').json()
-        await message.answer(f"1 Rubl={response['conversion_rate']} So'm")
+        response3=requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/RUB/UZS').json()
+        await message.answer(f"1 Rubl={response3['conversion_rate']} So'm")
     elif (message.text == "Kalkulyator"):
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
-        btn1 = KeyboardButton("Dollar-So'm")
-        btn2 = KeyboardButton("Dollar-Rubl")
-        btn3 = KeyboardButton("Rubl-So'm")
+        btn1 = KeyboardButton("AQSH dollari")
+        btn2 = KeyboardButton("So'm")
+        btn3 = KeyboardButton("Rubl")
         back = KeyboardButton("Bosh menuga qaytish")
         markup.add(btn1, btn2, btn3, back)
         await message.answer(text="Iltmos valyutani tanlang", reply_markup=markup)
