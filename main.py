@@ -57,9 +57,9 @@ async def changevalyut(message: types.Message):
         await message.answer(f"1 Rubl={response3['conversion_rate']} So'm")
     elif (message.text == "Kalkulyator"):
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
-        btn1 = KeyboardButton("AQSH dollari")
-        btn2 = KeyboardButton("So'm")
-        btn3 = KeyboardButton("Rubl")
+        btn1 = KeyboardButton("AQSH dollari - So'm")
+        btn2 = KeyboardButton("AQSH dollari - Rubl")
+        btn3 = KeyboardButton("Rossiya Rubli - So'm")
         back = KeyboardButton("Bosh menuga qaytish")
         markup.add(btn1, btn2, btn3, back)
         await message.answer(text="Iltmos valyutani tanlang", reply_markup=markup)
