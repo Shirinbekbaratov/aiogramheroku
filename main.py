@@ -3,9 +3,8 @@ import os
 from aiogram import Bot,Dispatcher,executor,types
 from aiogram.types import KeyboardButton,ReplyKeyboardMarkup
 import logging
+from config import BOT_TOKEN
 
-BOT_TOKEN='5536336221:AAFCjOmK2FCguf6tGqIkXBYyv8yaTGJ57cw'
-APP_URL=''
 bot=Bot(BOT_TOKEN)
 
 dp=Dispatcher(bot)
@@ -16,8 +15,9 @@ async def hello_message(message: types.Message):
     markup = ReplyKeyboardMarkup(resize_keyboard=True)
     btn1 = KeyboardButton("👋 Menu")
     btn2 = KeyboardButton("❓ Haqida")
-    markup.add(btn1, btn2)
-    await message.reply(f'Assalomu alaykum, {user}!'
+    btn3 = KeyboardButton("Kalkulyator")
+    markup.add(btn1, btn2, btn3)
+    await message.answer(f'Assalomu alaykum, {user}!'
                         f'\nValyuta narxlari botiga xush kelibsiz!',
                         reply_markup=markup)
 @dp.message_handler(content_types=['text'])
@@ -45,15 +45,25 @@ async def changevalyut(message: types.Message):
     elif(message.text == "Rubl-So'm"):
         response=requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/RUB/UZS').json()
         await message.answer(f"1 Rubl={response['conversion_rate']} So'm")
+    elif (message.text == "Kalkulyator"):
+        markup = ReplyKeyboardMarkup(resize_keyboard=True)
+        btn1 = KeyboardButton("Dollar-So'm")
+        btn2 = KeyboardButton("Dollar-Rubl")
+        btn3 = KeyboardButton("Rubl-So'm")
+        back = KeyboardButton("Bosh menuga qaytish")
+        markup.add(btn1, btn2, btn3, back)
+        await message.answer(text="Iltmos valyutani tanlang", reply_markup=markup)
 
     elif (message.text == "Bosh menuga qaytish"):
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
         button1 = KeyboardButton("👋 Menu")
         button2 = KeyboardButton("❓ Haqida")
-        markup.add(button1, button2)
+        button3 = KeyboardButton("Kalkulyator")
+        markup.add(button1, button2, button3)
         await message.answer(text="Bosh sahifaga qaytdingiz", reply_markup=markup)
     else:
         await message.answer(text="Bu buyruqni bajara olmayman")
+
 
     #await message.answer('Bajarildi')
 
