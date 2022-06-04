@@ -69,7 +69,7 @@ async def changevalyut(message: types.Message):
         response = requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/RUB/UZS').json()
         res=response['conversion_rate']
         ans = int(message.text)*res
-        await message.answer(ans)
+        await message.answer(f"{message.text} AQSH dollari {ans} So'm")
 
     elif (message.text == "Bosh menuga qaytish"):
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
