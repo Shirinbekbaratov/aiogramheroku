@@ -12,7 +12,7 @@ bot=Bot(BOT_TOKEN)
 
 dp=Dispatcher(bot)
 
-WEBHOOK_HOST = f'https://aiogramheroku.heroku.com'
+WEBHOOK_HOST = f'https://aiogramheroku.herokuapp.com'
 WEBHOOK_PATH = f'/webhook/{BOT_TOKEN}'
 WEBHOOK_URL = f'{WEBHOOK_HOST}{WEBHOOK_PATH}'
 
