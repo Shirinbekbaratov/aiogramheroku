@@ -65,11 +65,11 @@ async def changevalyut(message: types.Message):
         await message.answer(text="Iltmos valyutani tanlang", reply_markup=markup)
     elif message.text == "AQSH dollari - So'm":
             await message.answer('Iltimos qiymatni kiriting:')
-    elif int(message.text):
-        response = requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/RUB/UZS').json()
-        res=response['conversion_rate']
-        ans = int(message.text)*res
-        await message.answer(f"{message.text} AQSH dollari {ans} So'm")
+    #elif int(message.text):
+        #response = requests.get('https://v6.exchangerate-api.com/v6/9ea72025e6fd3b212e18f573/pair/RUB/UZS').json()
+        #res=response['conversion_rate']
+        #ans = int(message.text)*res
+        #await message.answer(f"{message.text} AQSH dollari {ans} So'm")
 
     elif (message.text == "Bosh menuga qaytish"):
         markup = ReplyKeyboardMarkup(resize_keyboard=True)
